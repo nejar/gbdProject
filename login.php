@@ -12,7 +12,6 @@ if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['_LOGIN'])) {
 	$username = strip_tags(stripslashes(htmlspecialchars(($_POST['username']))));
 	$password = strip_tags(stripslashes(htmlspecialchars(($_POST['password']))));
 	$hash_password = hash('sha256', $password . HASH_SALT);
-	echo $hash_password;
 
 	// query to fetch details form user table
 	$sql = "SELECT * FROM `user` WHERE username = '$username' AND password = '$hash_password'";
